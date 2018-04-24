@@ -8,7 +8,7 @@ Then we create the controller and the model:
 
 ```
 cd forum
-php artisan make:model Forum -a`
+php artisan make:model -m -c -r Forum
 ```
 
 Next, we create the mysql database along with a user:
