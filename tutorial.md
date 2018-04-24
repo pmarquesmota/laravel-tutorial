@@ -179,7 +179,7 @@ the `@include` at the beginning and the end include two other views with opening
 ```
 
 It is actually only the opening html which displays the title passed in parameter by the controller. The content of the footer sub-view in 
-`resources/view/footer.blade.php` is even simpler, since it does not uses any controller parameter :
+`resources/view/footers.blade.php` is even simpler, since it does not uses any controller parameter :
 
 ```html
     </body>
