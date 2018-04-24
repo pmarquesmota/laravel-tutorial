@@ -38,7 +38,7 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        $myDb = new ForumModel();
+        $myDb = new Forum();
         $myDb->content = $request->get('content');
         $myDb->save();
         return redirect('/');
@@ -53,7 +53,7 @@ class ForumController extends Controller
     public function show(Forum $forum)
     {
         $id = $request->input('id');
-        $content = ForumModel::find($id);
+        $content = Forum::find($id);
         return view('show', ['content' => $content, 'title' => 'Read a single item']);
     }
 
@@ -66,7 +66,7 @@ class ForumController extends Controller
     public function edit(Forum $forum)
     {
         $id = $request->input('id');
-        $content = ForumModel::find($id);
+        $content = Forum::find($id);
         return view('edit', ['content' => $content, 'title' => 'edit a single item']);
     }
 
@@ -80,7 +80,7 @@ class ForumController extends Controller
     public function update(Request $request, Forum $forum)
     {
         $id = $request->input('id');
-        $content = ForumModel::find($id);
+        $content = Forum::find($id);
         $content->content = $request->input('content');
         $content->save();
         return redirect('/');
@@ -95,7 +95,7 @@ class ForumController extends Controller
     public function destroy(Forum $forum)
     {
         $id = $request->input('id');
-        $content = ForumModel::find($id);
+        $content = Forum::find($id);
         $content->delete();
         return redirect('/');
     }
