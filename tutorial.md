@@ -79,7 +79,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumModelsTable extends Migration
+class CreateForumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -88,7 +88,7 @@ class CreateForumModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('forum_models', function (Blueprint $table) {
+        Schema::create('forums', function (Blueprint $table) {
             $table->increments('id');
             $table->text('content');
             $table->timestamps();
@@ -102,7 +102,7 @@ class CreateForumModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forum_models');
+        Schema::dropIfExists('forums');
     }
 }
 ?>
@@ -134,7 +134,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
-use App\ForumModel;
+use App\Forum;
 
 class ForumController extends Controller
 {
@@ -145,15 +145,15 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $contents = ForumModel::All();
+        $contents = Forum::All();
 		return view('home', ['content' => $content, 'title' => 'index']);
     }
 }
 ?>
 ```
 
-It loads the content of the forums table by calling the superclass of our model in `app/ForumModel.php`, since it is still empty. We also have to specify the
-namespace `Illuminate\Database\Eloquent\Model` for using the eloquent framework and `App\ForumModel` for our model.
+It loads the content of the forums table by calling the superclass of our model in `app/Forum.php`, since it is still empty. We also have to specify the
+namespace `Illuminate\Database\Eloquent\Model` for using the eloquent framework and `App\Forum` for our model.
 Then it returns the home view with the content (an associative array containing the content of the database table forum_models) and a title of our own
 choosing.
 
@@ -254,7 +254,7 @@ This in turn references the store method in our `app/Http/Controllers/ForumContr
 ```php
 public function store(Request $request)
 {
-    $myDb = new ForumModel();
+    $myDb = new Forum();
     $myDb->content = $request->get('content');
     $myDb->save();
 	return redirect('/');
@@ -277,7 +277,7 @@ convoluted way to get it. It is implemented like this:
 public function show(Request $request)
 {
     $id = $request->input('id');
-    $content = ForumModel::find($id);
+    $content = Forum::find($id);
     return view('show', ['content' => $content, 'title' => 'Read a single item']);
 }
 ```
@@ -303,7 +303,7 @@ The next method handled by the controller is `edit()`, which implements the U (u
 public function edit(Request $request)
 {
     $id = $request->input('id');
-    $content = ForumModel::find($id);
+    $content = Forum::find($id);
     return view('edit', ['content' => $content, 'title' => 'edit a single item']);
 }
 ```
@@ -335,7 +335,7 @@ And the update method in the `app/Http/Controllers/ForumController` controller m
 public function update(Request $request)
 {
     $id = $request->input('id');
-    $content = ForumModel::find($id);
+    $content = Forum::find($id);
 	$content->content = $request->input('content');
 	$content->save();
 	   
@@ -360,7 +360,7 @@ This route calls then the `destroy() method in the `/Http/Controllers/ForumContr
 public function destroy(Request $request)
 {
     $id = $request->input('id');
-    $content = ForumModel::find($id);
+    $content = Forum::find($id);
     $content->delete();
 
     return redirect('/');
