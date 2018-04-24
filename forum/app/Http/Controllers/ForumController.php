@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Forum;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
+use App\Forum;
 
 class ForumController extends Controller
 {
