@@ -285,7 +285,7 @@ public function show(Request $request)
 This time, instead of capturing the parameter in the route, it is accessed by the controller using the input method of the parameter `Request` class. Then the `find()`
 method of the Eloquent database access retrieve the id row in the database. Finally, the show view is returned with the database row and a title.
 
-The show view displays all the fields of the database row :
+The show view in `resources/views/show.blade.php` displays all the fields of the database row :
 
 ```html
 @include('header')
