@@ -160,7 +160,7 @@ choosing.
 The home view is located in `resources/views/home.blade.php`, we'll fill it with a few pseudo-instructions for displaying the content of the database table and some
 html to implement the C (create) part of the CRUD :
 
-```html
+```laravel
 @include('header')
 <h1><a href="/index.php/create">Create</a></h1>
 @each('forumView', $content, 'content')
