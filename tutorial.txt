@@ -7,8 +7,7 @@ composer create-project --prefer-dist laravel/laravel forum
 Then we create the controller and the model:
 
 cd forum
-php artisan make:controller ForumController --resource
-php artisan make:model ForumModel --migration
+php artisan make:model Forum -a
 
 Next, we create the mysql database along with a user:
 
