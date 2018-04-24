@@ -15,8 +15,8 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $contents = Forum::All();
-	return view('home', ['content' => $content, 'title' => 'index']);
+        $content = Forum::All();
+        return view('home', ['content' => $content, 'title' => 'index']);
     }
 
     /**
