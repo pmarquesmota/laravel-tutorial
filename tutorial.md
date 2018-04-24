@@ -71,6 +71,7 @@ Then we edit database/migrations/*create_forum_models_table.php to add the line:
 ```php
 $table->text('content');
 ```
+
 You should end up with something like this:
 
 ```php
@@ -107,6 +108,7 @@ class CreateForumModelsTable extends Migration
     }
 }
 ?>
+```
 
 Then we actually create the tables in the database with :
 
