@@ -79,7 +79,11 @@ class ForumController extends Controller
      */
     public function update(Request $request, Forum $forum)
     {
-        //
+        $id = $request->input('id');
+        $content = ForumModel::find($id);
+        $content->content = $request->input('content');
+        $content->save();
+        return redirect('/');
     }
 
     /**
