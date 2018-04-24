@@ -2,30 +2,23 @@ For this laravel tutorial, we will create a bare bone forum and define the CRUD 
 
 The first step is to create the project with composer:
 
-```
-composer create-project --prefer-dist laravel/laravel forum
-```
+`composer create-project --prefer-dist laravel/laravel forum`
 
 Then we create the controller and the model:
 
-```
-cd forum
-php artisan make:model Forum -a
-```
+`cd forum
+php artisan make:model Forum -a`
 
 Next, we create the mysql database along with a user:
 
-```
-mysql -u root -p 
+`mysql -u root -p 
 create database forum;
 grant all privileges on forum.* to user identified by 'password';
-flush privileges;
-```
+flush privileges;`
 
 Then we have to fill in the DB_* fields in the .env file with database info (APP_KEY is auto created, there's no need to touch it):
 
-```
-APP_NAME=Laravel
+`APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:<something>
 APP_DEBUG=true
@@ -63,8 +56,7 @@ PUSHER_APP_SECRET=
 PUSHER_APP_CLUSTER=mt1
 
 MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-```
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"`
 
 Then we edit database/migrations/*create_forum_models_table.php to add the line:
 
