@@ -65,7 +65,9 @@ class ForumController extends Controller
      */
     public function edit(Forum $forum)
     {
-        //
+        $id = $request->input('id');
+        $content = ForumModel::find($id);
+        return view('edit', ['content' => $content, 'title' => 'edit a single item']);
     }
 
     /**
