@@ -114,7 +114,7 @@ Then we actually create the tables in the database with :
 php artisan migrate
 ```
 
-Now you can start programming :) Let's start by `creating a route in routes/web.php` :
+Now you can start programming :) Let's start by creating a route in `routes/web.php` :
 
 ```php
 <?php
