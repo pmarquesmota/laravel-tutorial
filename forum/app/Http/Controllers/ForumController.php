@@ -52,7 +52,9 @@ class ForumController extends Controller
      */
     public function show(Forum $forum)
     {
-        //
+        $id = $request->input('id');
+        $content = ForumModel::find($id);
+        return view('show', ['content' => $content, 'title' => 'Read a single item']);
     }
 
     /**
