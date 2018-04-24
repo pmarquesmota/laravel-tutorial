@@ -112,19 +112,24 @@ class CreateForumModelsTable extends Migration
 
 Then we actually create the tables in the database with :
 
+```
 php artisan migrate
+```
 
 Now you can start programming :) Let's start by creating a route in routes/web.php :
 
+```php
 <?php
 	Route::get('/', 'ForumController@index');
 ?>
+```
 
 This one refers to the index method of the controller created by php artisan make:controller ForumController --resource
 It implements the R (Read) part of the CRUD.
 
 So we now modify the index method of the file app/Http/Controllers/ForumController.php like this :
 
+```php
 <?php
 
 namespace App\Http\Controllers;
