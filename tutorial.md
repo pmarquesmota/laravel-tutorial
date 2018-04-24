@@ -227,7 +227,7 @@ public function create()
 
 The resources/views/create.blade.php it references is a textarea html form :
 
-```html
+```
 @include('header')
 <form action="/index.php/store/" method="POST">
     @csrf
@@ -281,7 +281,7 @@ method of the Eloquent database access retrieve the id row in the database. Fina
 
 The show view displays all the fields of the database row :
 
-```html
+```
 @include('header')
 id : {{$content->id}}<br>
 content : {{$content->content}}<br>
@@ -304,7 +304,7 @@ public function edit(Request $request)
 However the called view in resources/views/edit.blade.php is a form with a @csrf for security, a hidden id input tag, and a predefined value to update the
 database record:
 
-```html
+```
 @include('header')
 <form action="/index.php/update/" method="POST">
     @csrf
