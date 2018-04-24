@@ -2,7 +2,9 @@ For this laravel tutorial, we will create a bare bone forum and define the CRUD 
 
 The first step is to create the project with composer:
 
+```
 composer create-project --prefer-dist laravel/laravel forum
+```
 
 Then we create the controller and the model:
 
