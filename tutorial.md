@@ -6,19 +6,24 @@ The first step is to create the project with composer:
 
 Then we create the controller and the model:
 
-`cd forum
+```
+cd forum
 php artisan make:model Forum -a`
+```
 
 Next, we create the mysql database along with a user:
 
-`mysql -u root -p 
+```
+mysql -u root -p 
 create database forum;
 grant all privileges on forum.* to user identified by 'password';
-flush privileges;`
+flush privileges;
+```
 
 Then we have to fill in the DB_* fields in the .env file with database info (APP_KEY is auto created, there's no need to touch it):
 
-`APP_NAME=Laravel
+```
+APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:<something>
 APP_DEBUG=true
@@ -57,6 +62,7 @@ PUSHER_APP_CLUSTER=mt1
 
 MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
 MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"`
+```
 
 Then we edit database/migrations/*create_forum_models_table.php to add the line:
 
@@ -154,7 +160,7 @@ choosing.
 The home view is located in resources/views/home.blade.php, we'll fill it with a few pseudo-instructions for displaying the content of the database table and some
 html to implement the C (create) part of the CRUD :
 
-```
+```html
 @include('header')
 <h1><a href="/index.php/create">Create</a></h1>
 @each('forumView', $content, 'content')
@@ -281,7 +287,7 @@ method of the Eloquent database access retrieve the id row in the database. Fina
 
 The show view displays all the fields of the database row :
 
-```
+```html
 @include('header')
 id : {{$content->id}}<br>
 content : {{$content->content}}<br>
@@ -292,6 +298,7 @@ updated_at : {{$content->updated_at}}<br>
 ```
  
 The next method handled by the controller is edit(), which implements the U (update) part of the CRUD. Its implementation is identical to the show() method, 
+
 ```php
 public function edit(Request $request)
 {
@@ -304,7 +311,7 @@ public function edit(Request $request)
 However the called view in resources/views/edit.blade.php is a form with a @csrf for security, a hidden id input tag, and a predefined value to update the
 database record:
 
-```
+```html
 @include('header')
 <form action="/index.php/update/" method="POST">
     @csrf
