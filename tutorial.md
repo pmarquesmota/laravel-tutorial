@@ -233,7 +233,7 @@ public function create()
 
 The resources/views/create.blade.php it references is a textarea html form :
 
-```
+```html
 @include('header')
 <form action="/index.php/store/" method="POST">
     @csrf
