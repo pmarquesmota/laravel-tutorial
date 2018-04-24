@@ -38,7 +38,10 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $myDb = new ForumModel();
+        $myDb->content = $request->get('content');
+        $myDb->save();
+        return redirect('/');
     }
 
     /**
