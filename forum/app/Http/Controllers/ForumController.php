@@ -49,7 +49,7 @@ class ForumController extends Controller
      * @param  \App\Forum  $forum
      * @return \Illuminate\Http\Response
      */
-    public function show(Forum $forum)
+    public function show(Request $request)
     {
         $id = $request->input('id');
         $content = Forum::find($id);
@@ -62,7 +62,7 @@ class ForumController extends Controller
      * @param  \App\Forum  $forum
      * @return \Illuminate\Http\Response
      */
-    public function edit(Forum $forum)
+    public function edit(Request $request)
     {
         $id = $request->input('id');
         $content = Forum::find($id);
@@ -91,7 +91,7 @@ class ForumController extends Controller
      * @param  \App\Forum  $forum
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Forum $forum)
+    public function destroy(Request $request)
     {
         $id = $request->input('id');
         $content = Forum::find($id);
