@@ -1,5 +1,5 @@
 @include('header')
-<form action="/index.php/update/" method="POST">
+<form action="/index.php/update" method="POST">
     @csrf
     @method('PUT')
     <input type="hidden" name="id" value="{{$content->id}}" >
