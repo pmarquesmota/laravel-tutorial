@@ -1,16 +1,10 @@
 <?php
+Route::get('/', 'ForumController@index');
+Route::get('/create', 'ForumController@create');
+Route::get('/create', 'ForumController@create');
+Route::post('/store', 'ForumController@store');
+Route::post('/show', 'ForumController@show');
+Route::put('/edit', 'ForumController@edit');
+Route::put('/update', 'ForumController@update');
+Route::delete('/destroy', 'ForumController@destroy');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
